@@ -1,6 +1,6 @@
 const github = require('./util/github');
 const HTTPError = require('./util/httpError');
-const { githubToTrello: handler } = require('./handler/githubToTrello');
+const { githubToJenkins: handler } = require('./handler/githubToJenkins');
 
 /**
  * HTTP Cloud Function for GitHub Webhook events.
@@ -20,23 +20,14 @@ exports.githubWebhookHandler = async (req, res) => {
     }
     console.info(`Received request from ${req.ip} (${req.headers['user-agent']})`);
 
-    // Verify that this request came from GitHub
-    github.validateWebhook(req);
+    // No need to verify that this request came from GitHub because Jenkins
+    // will do that anyway.
+    // github.validateWebhook(req);
 
     const githubEvent = req.headers['x-github-event'];
-    const request = await handler(githubEvent, req);
-
-    // The location is the URI of the newly created resource
-    const { location } = request;
-    if (location) {
-      res.setHeader('Location', location);
-      res.status(201);
-      console.info(`HTTP 201: Created ${location} for ${githubEvent} event`);
-    } else {
-      res.status(200);
-      console.info(`HTTP 200: ${githubEvent} event`);
-    }
-    res.send(request.body);
+    const event = await handler(githubEvent, req);
+    console.log(event);
+    res.send(event);
   } catch (e) {
     if (e instanceof HTTPError) {
       res.status(e.statusCode).send(e.message);

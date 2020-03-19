@@ -6,6 +6,16 @@ A [Google Cloud Function](https://cloud.google.com/functions/) that handles [Git
 
 Implemented for the [Node 10 runtime](https://cloud.google.com/functions/docs/concepts/nodejs-10-runtime) with no additional runtime dependencies.
 
+## GitHub to Jenkins
+
+Modifications for Jenkins were written by Stanko Arbutina, Alen Bašić and Josip Gracin.
+
+There are two environment variables that need to be set: 
+- JENKINS\_HOST, and
+- JENKINS\_PORT. 
+
+Jenkins should perform authentication of webhooks using shared secret configured in GitHub plugin.
+
 ## GitHub to Trello
 
 The default handler, `githubToTrello`, posts comments and attachments to Trello when there is a GitHub push or pull request.
