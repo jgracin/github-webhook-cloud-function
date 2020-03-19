@@ -1,7 +1,5 @@
 # GitHub Webhooks with Google Cloud Functions
 
-[![Build Status](https://travis-ci.com/eddies/github-webhook-cloud-function.svg?branch=master)](https://travis-ci.com/eddies/github-webhook-cloud-function)
-
 A [Google Cloud Function](https://cloud.google.com/functions/) that handles [GitHub Webhook](https://developer.github.com/webhooks/) events.
 
 Implemented for the [Node 10 runtime](https://cloud.google.com/functions/docs/concepts/nodejs-10-runtime) with no additional runtime dependencies.
