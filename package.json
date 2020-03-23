@@ -11,10 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eddies/github-webhook-cloud-function.git"
+    "url": "git+https://github.com/sweetspot/github-webhook-cloud-function.git"
   },
   "keywords": [
     "github",
+    "jenkins",
     "trello",
     "google cloud functions",
     "node"
@@ -22,9 +23,9 @@
   "author": "Edwin Shin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/eddies/github-webhook-cloud-function/issues"
+    "url": "https://github.com/sweetspot/github-webhook-cloud-function/issues"
   },
-  "homepage": "https://github.com/eddies/github-webhook-cloud-function#readme",
+  "homepage": "https://github.com/sweetspot/github-webhook-cloud-function#readme",
   "dependencies": {},
   "devDependencies": {
     "@google-cloud/functions-framework": "^1.5.0",
